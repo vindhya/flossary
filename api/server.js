@@ -6,3 +6,4 @@ const { applyMiddleware } = require('./utils');
 const middleware = require('./middleware');
 
 const app = express();
+applyMiddleware(middleware, app);
