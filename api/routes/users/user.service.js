@@ -24,3 +24,11 @@ exports.isUser = async ({ email, password }) => {
     throw e;
   }
 };
+
+exports.getUsers = async () => {
+  try {
+    return await User.find();
+  } catch (e) {
+    throw e;
+  }
+};
