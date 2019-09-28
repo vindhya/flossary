@@ -1,8 +1,10 @@
+const mongoose = require('mongoose');
 const { model: FlossList } = require('./flossList.model');
 
 exports.getList = async flossListId => {
   try {
-    return await FlossList.find({ flossListId });
+    const listObjectId = mongoose.Types.ObjectId(flossListId);
+    return await FlossList.findOne({ _id: listObjectId });
   } catch (e) {
     throw e;
   }
