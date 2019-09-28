@@ -27,7 +27,16 @@ exports.getLists = async userId => {
   }
 };
 
-exports.updateList = () => {};
+exports.updateList = async (listId, newListData) => {
+  const foundList = await FlossList.findById(listId);
+  console.log('found list', foundList);
+  for (let key in newListData) {
+    // TODO: update each foundList[key] with newListData[key]
+    // make sure frontend is sending entire list, i.e., with the updates
+    console.log(key, listData[key]);
+  }
+  return 'hi';
+};
 
 exports.updateFlossList = () => {};
 

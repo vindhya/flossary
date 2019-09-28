@@ -28,6 +28,13 @@ router
       next(e);
     }
   })
-  .patch(async (req, res, next) => {});
+  .patch(async (req, res, next) => {
+    try {
+      const list = await flossListService.updateList(req.params.flossListId, req.body.data);
+      res.status(200).json({ data: list });
+    } catch (e) {
+      next(e);
+    }
+  });
 
 exports.router = router;
