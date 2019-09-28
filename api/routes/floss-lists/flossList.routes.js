@@ -18,13 +18,16 @@ router
     }
   });
 
-router.route('/:flossListId').get(async (req, res, next) => {
-  try {
-    const list = await flossListService.getList(req.params.flossListId);
-    res.status(200).json({ data: list });
-  } catch (e) {
-    next(e);
-  }
-});
+router
+  .route('/:flossListId')
+  .get(async (req, res, next) => {
+    try {
+      const list = await flossListService.getList(req.params.flossListId);
+      res.status(200).json({ data: list });
+    } catch (e) {
+      next(e);
+    }
+  })
+  .patch(async (req, res, next) => {});
 
 exports.router = router;

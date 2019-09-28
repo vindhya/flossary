@@ -17,7 +17,6 @@ exports.isUser = async ({ email, password }) => {
       const match = await user.comparePassword(password);
       if (match) {
         return user;
-        console.log('returned user inside user service isUser()', user);
       }
     }
   } catch (e) {
