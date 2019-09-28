@@ -4,10 +4,14 @@ const tokenService = require('../../utils/token.service.js');
 
 const router = express.Router();
 
-router.route('/').get(async (req, res) => {
-  // add a route guard here so that only super admins can get all users
-  const users = await userService.getUsers();
-  res.status(200).json({ data: users });
+router.route('/').get(async (req, res, next) => {
+  try {
+    // add a route guard here so that only super admins can get all users
+    const users = await userService.getUsers();
+    res.status(200).json({ data: users });
+  } catch (e) {
+    next(e);
+  }
 });
 
 router.route('/signup').post(async (req, res, next) => {
