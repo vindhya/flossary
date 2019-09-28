@@ -3,14 +3,20 @@ const flossListService = require('./flossList.service');
 
 const router = express.Router();
 
-router.route('/').post(async (req, res, next) => {
-  try {
-    const list = await flossListService.createList(req.body.data);
-    res.status(201).json({ data: list });
-  } catch (e) {
-    next(e);
-  }
-});
+router
+  .route('/')
+  .get(async (req, res, next) => {
+    const lists = await flossListService.getLists(req.query.user);
+    res.status(200).json({ data: lists });
+  })
+  .post(async (req, res, next) => {
+    try {
+      const list = await flossListService.createList(req.body.data);
+      res.status(201).json({ data: list });
+    } catch (e) {
+      next(e);
+    }
+  });
 
 router.route('/:flossListId').get(async (req, res, next) => {
   try {
