@@ -15,7 +15,7 @@ applyMiddleware(middleware, app);
 
 app.use('/api/users', userRouter);
 app.use('/api/floss', flossRouter);
-app.use('/api/floss-list', flossListRouter);
+app.use('/api/floss-lists', flossListRouter);
 
 mongoose
   .connect(URL, { useNewUrlParser: true })
