@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const flossSchema = new Schema({
-  flossIdentifier: {
+  flossId: {
     type: String,
     unique: true,
     required: true
