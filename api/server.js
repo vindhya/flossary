@@ -6,12 +6,16 @@ const { applyMiddleware } = require('./utils');
 const middleware = require('./middleware');
 const { router: userRouter } = require('./routes/users/user.routes');
 const { router: flossRouter } = require('./routes/floss/floss.routes');
+const {
+  router: flossListRouter
+} = require('./routes/floss-lists/flossList.routes');
 
 const app = express();
 applyMiddleware(middleware, app);
 
 app.use('/api/users', userRouter);
 app.use('/api/floss', flossRouter);
+app.use('/api/floss-list', flossListRouter);
 
 mongoose
   .connect(URL, { useNewUrlParser: true })

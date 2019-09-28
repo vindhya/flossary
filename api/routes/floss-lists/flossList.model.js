@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const ObjectId = Schema.Types.ObjectId;
 
 const flossListSchema = new Schema({
   userId: {
@@ -13,7 +14,7 @@ const flossListSchema = new Schema({
   description: String,
   flossList: {
     type: [ObjectId],
-    default: undefined
+    default: []
   }
 });
 
