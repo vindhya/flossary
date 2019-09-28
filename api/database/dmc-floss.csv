@@ -1,4 +1,4 @@
-number,manufacturer,flossIdentifier,description,red,green,blue
+number,manufacturer,flossId,description,red,green,blue
 3713,DMC,DMC-3713,Salmon Very Light,255,226,226
 761,DMC,DMC-761,Salmon Light,255,201,201
 760,DMC,DMC-760,Salmon,245,173,173
