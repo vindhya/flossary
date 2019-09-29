@@ -29,11 +29,9 @@ exports.getLists = async userId => {
 
 exports.updateList = async (listId, newListData) => {
   // frontend should be sending entire flossList if updated in newListData, i.e., with the updates
-  const foundList = await FlossList.findById(listId);
-  for (let key in newListData) {
-    foundList[key] = newListData[key];
-  }
-  return await foundList.save();
+  const list = await FlossList.findById(listId);
+  list.set(newListData);
+  return await list.save();
 };
 
 exports.deleteList = () => {};
