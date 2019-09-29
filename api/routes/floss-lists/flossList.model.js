@@ -5,6 +5,7 @@ const ObjectId = Schema.Types.ObjectId;
 const flossListSchema = new Schema({
   userId: {
     type: ObjectId,
+    ref: 'User',
     required: true
   },
   name: {
@@ -16,10 +17,12 @@ const flossListSchema = new Schema({
     type: String,
     trim: true
   },
-  flossList: {
-    type: [ObjectId],
-    default: []
-  }
+  flossList: [
+    {
+      type: ObjectId,
+      ref: 'Floss'
+    }
+  ]
 });
 
 exports.model = mongoose.model('FlossList', flossListSchema);
