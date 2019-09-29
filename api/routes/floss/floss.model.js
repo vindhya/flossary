@@ -5,20 +5,24 @@ const flossSchema = new Schema({
   flossId: {
     type: String,
     unique: true,
-    required: true
+    required: true,
+    trim: true
   },
   number: {
     type: String,
     unique: true,
-    required: true
+    required: true,
+    trim: true
   },
   manufacturer: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   description: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   red: Number,
   green: Number,

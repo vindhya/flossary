@@ -9,9 +9,13 @@ const flossListSchema = new Schema({
   },
   name: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
-  description: String,
+  description: {
+    type: String,
+    trim: true
+  },
   flossList: {
     type: [ObjectId],
     default: []
