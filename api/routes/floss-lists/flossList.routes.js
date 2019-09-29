@@ -1,11 +1,12 @@
 const express = require('express');
 const flossListService = require('./flossList.service');
+const requireAuth = require('../../middleware/auth');
 
 const router = express.Router();
 
 router
   .route('/')
-  .get(async (req, res, next) => {
+  .get(requireAuth, async (req, res, next) => {
     const lists = await flossListService.getLists(req.query.user);
     res.status(200).json({ data: lists });
   })
@@ -30,7 +31,10 @@ router
   })
   .patch(async (req, res, next) => {
     try {
-      const list = await flossListService.updateList(req.params.flossListId, req.body.data);
+      const list = await flossListService.updateList(
+        req.params.flossListId,
+        req.body.data
+      );
       res.status(200).json({ data: list });
     } catch (e) {
       next(e);
