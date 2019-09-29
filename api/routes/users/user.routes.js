@@ -1,18 +1,21 @@
 const express = require('express');
 const userService = require('./user.service');
 const tokenService = require('../../utils/token.service.js');
+const flossListService = require('../floss-lists/flossList.service');
 
 const router = express.Router();
 
-router.route('/').get(async (req, res, next) => {
-  try {
-    // add a route guard here so that only super admins can get all users
-    const users = await userService.getUsers();
-    res.status(200).json({ data: users });
-  } catch (e) {
-    next(e);
-  }
-});
+router
+  .route('/')
+  // TODO: add authorization here so that only super admins can get all users
+  .get(async (req, res, next) => {
+    try {
+      const users = await userService.getUsers();
+      res.status(200).json({ data: users });
+    } catch (e) {
+      next(e);
+    }
+  });
 
 router.route('/signup').post(async (req, res, next) => {
   try {
@@ -36,5 +39,17 @@ router.route('/login').post(async (req, res, next) => {
     next(e);
   }
 });
+
+router
+  .route('/:id/floss-lists')
+  // TODO: add authorization here so only the user with the same id as this route can access
+  .get(async (req, res, next) => {
+    try {
+      const lists = await flossListService.getListsByUser(req.params.id);
+      res.status(200).json({ data: lists });
+    } catch (e) {
+      next(e);
+    }
+  });
 
 exports.router = router;
