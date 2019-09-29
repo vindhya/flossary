@@ -21,23 +21,19 @@ exports.getList = async flossListId => {
 
 exports.getLists = async userId => {
   try {
-    return await FlossList.find(userId);
+    return await FlossList.find({ userId });
   } catch (e) {
     throw e;
   }
 };
 
 exports.updateList = async (listId, newListData) => {
+  // frontend should be sending entire flossList if updated in newListData, i.e., with the updates
   const foundList = await FlossList.findById(listId);
-  console.log('found list', foundList);
   for (let key in newListData) {
-    // TODO: update each foundList[key] with newListData[key]
-    // make sure frontend is sending entire list, i.e., with the updates
-    console.log(key, listData[key]);
+    foundList[key] = newListData[key];
   }
-  return 'hi';
+  return await foundList.save();
 };
-
-exports.updateFlossList = () => {};
 
 exports.deleteList = () => {};
