@@ -7,7 +7,7 @@ const router = express.Router();
 router
   .route('/')
   .get(requireAuth, async (req, res, next) => {
-    const lists = await flossListService.getLists(req.query.user);
+    const lists = await flossListService.getLists();
     res.status(200).json({ data: lists });
   })
   .post(async (req, res, next) => {

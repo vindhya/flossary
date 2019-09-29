@@ -19,9 +19,9 @@ exports.getList = async flossListId => {
   }
 };
 
-exports.getLists = async userId => {
+exports.getLists = async () => {
   try {
-    return await FlossList.find({ userId });
+    return await FlossList.find();
   } catch (e) {
     throw e;
   }
