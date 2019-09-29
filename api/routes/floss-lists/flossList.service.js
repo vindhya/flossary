@@ -13,7 +13,8 @@ exports.createList = async flossListData => {
 exports.getList = async flossListId => {
   try {
     const listObjectId = mongoose.Types.ObjectId(flossListId);
-    return await FlossList.findOne({ _id: listObjectId });
+    // if the populate() stops working, it might be that the .exec() needs to be chained on after it
+    return await FlossList.findOne({ _id: listObjectId }).populate('flossList');
   } catch (e) {
     throw e;
   }
@@ -21,7 +22,7 @@ exports.getList = async flossListId => {
 
 exports.getLists = async () => {
   try {
-    return await FlossList.find();
+    return await FlossList.find().populate('flossList');
   } catch (e) {
     throw e;
   }
@@ -29,7 +30,7 @@ exports.getLists = async () => {
 
 exports.getListsByUser = async user => {
   try {
-    return await FlossList.find({ user });
+    return await FlossList.find({ user }).populate('flossList');
   } catch (e) {
     throw e;
   }
