@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 const ObjectId = Schema.Types.ObjectId;
 
 const flossListSchema = new Schema({
-  userId: {
+  user: {
     type: ObjectId,
     ref: 'User',
     required: true

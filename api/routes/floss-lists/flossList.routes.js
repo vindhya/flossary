@@ -6,6 +6,7 @@ const router = express.Router();
 
 router
   .route('/')
+  // TODO: add authorization so that only super admins can get all floss lists
   .get(requireAuth, async (req, res, next) => {
     const lists = await flossListService.getLists();
     res.status(200).json({ data: lists });

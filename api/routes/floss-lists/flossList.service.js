@@ -27,6 +27,14 @@ exports.getLists = async () => {
   }
 };
 
+exports.getListsByUser = async user => {
+  try {
+    return await FlossList.find({ user });
+  } catch (e) {
+    throw e;
+  }
+};
+
 exports.updateList = async (listId, newListData) => {
   // frontend should be sending entire flossList if updated in newListData, i.e., with the updates
   const list = await FlossList.findById(listId);
