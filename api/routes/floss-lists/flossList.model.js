@@ -17,6 +17,11 @@ const flossListSchema = new Schema({
     type: String,
     trim: true
   },
+  public: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
   flossList: [
     {
       type: ObjectId,
