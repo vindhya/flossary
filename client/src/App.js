@@ -1,8 +1,19 @@
 import React from 'react';
+import { Grommet } from 'grommet';
+
+const theme = {
+  global: {
+    font: {
+      family: 'Montserrat',
+      size: '16px',
+      height: '22px'
+    }
+  }
+};
 
 function App() {
   return (
-    <div className="App">
+    <Grommet theme={theme}>
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -16,7 +27,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </Grommet>
   );
 }
 
