@@ -8,9 +8,12 @@ import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 
+import { GlobalStyle } from './GlobalStyles';
+
 const App = () => {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Header />
 
       <Container>
