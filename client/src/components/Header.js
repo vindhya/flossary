@@ -1,29 +1,31 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
 
 const Header = () => {
   return (
     <Navbar expand="md">
       <Container>
-        <Navbar.Brand href="#home">
+        <NavLink exact to={`/`} className="navbar-brand">
           <img
             src={process.env.PUBLIC_URL + '/flossary-logo.svg'}
             alt="flossary logo"
           />
-        </Navbar.Brand>
+        </NavLink>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link className="mr-2" href="#home">
+            <NavLink to={`/login`} className="nav-link mr-2">
               Log In
-            </Nav.Link>
-            <Button variant="secondary" href="#link">
+            </NavLink>
+            <NavLink to={`/signup`} className="btn btn-secondary">
               Sign Up
-            </Button>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
