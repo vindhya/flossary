@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
+import Container from 'react-bootstrap/Container';
+import Header from './Header';
 
-class App extends Component {
-  render() {
-    return <div>Hello World!</div>;
-  }
-}
+const App = () => {
+  return (
+    <Fragment>
+      <Header />
+      <Container>This is the rest of the app body!</Container>
+    </Fragment>
+  );
+};
 
 export default App;
