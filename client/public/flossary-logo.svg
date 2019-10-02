@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="255px" height="74px" viewBox="0 0 255 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="197px" height="54px" viewBox="0 0 197 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
-    <title>Desktop</title>
+    <title>Flossary Logo</title>
     <desc>Created with Sketch.</desc>
     <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop" transform="translate(-38.000000, -24.000000)">
-            <g id="Logo" transform="translate(38.000000, 13.000000)">
-                <text id="flossary" font-family="Mountecarlo" font-size="55" font-weight="normal" fill="#000000">
-                    <tspan x="90" y="61">flossary</tspan>
+        <g id="Desktop" transform="translate(-42.000000, -36.000000)">
+            <g id="Logo" transform="translate(42.000000, 27.000000)">
+                <text id="flossary" font-family="Mountecarlo" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="78" y="45">flossary</tspan>
                 </text>
-                <text id="F" font-family="Costura-Light, Costura" font-size="50" font-weight="normal" fill="#000000">
-                    <tspan x="0" y="65">F</tspan>
+                <text id="F" font-family="Costura-Light, Costura" font-size="44" font-weight="normal" fill="#000000">
+                    <tspan x="0" y="50">F</tspan>
                 </text>
-                <path d="M55.5,30 L55.5,63.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+                <path d="M49.5,17 L49.5,50.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
             </g>
         </g>
     </g>
