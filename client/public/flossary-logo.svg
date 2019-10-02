@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="255px" height="74px" viewBox="0 0 255 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Desktop</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-38.000000, -24.000000)">
+            <g id="Logo" transform="translate(38.000000, 13.000000)">
+                <text id="flossary" font-family="Mountecarlo" font-size="55" font-weight="normal" fill="#000000">
+                    <tspan x="90" y="61">flossary</tspan>
+                </text>
+                <text id="F" font-family="Costura-Light, Costura" font-size="50" font-weight="normal" fill="#000000">
+                    <tspan x="0" y="65">F</tspan>
+                </text>
+                <path d="M55.5,30 L55.5,63.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>
