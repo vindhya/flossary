@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 
 const Footer = () => {

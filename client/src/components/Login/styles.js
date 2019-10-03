@@ -7,3 +7,7 @@ export const Form = styled.form`
   flex-grow: 1;
   justify-content: space-evenly;
 `;
+
+export const Input = styled.input`
+	
+`

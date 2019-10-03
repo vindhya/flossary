@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Header from './Header';
 import Footer from './Footer/Footer';
 import Home from './Home/Home';
-import Login from './User/Login';
-import Signup from './User/Signup';
+import Login from './Login/Login';
+import Signup from './Login/Signup';
 
 import { GlobalStyle } from './GlobalStyles';
 

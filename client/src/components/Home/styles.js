@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const Paragraph = styled.p`
+export const Description = styled.p`
   font-size: 1.2rem;
 `;
