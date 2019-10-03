@@ -12,10 +12,9 @@ class Login extends Component {
     const { email, password } = this.state;
 
     try {
-      const res = await axios.post(`/api/users/login`, {
-        data: { email, password }
-      });
-      const token = res.data.data.token;
+      const res = await axios.post(`/api/users/login`, { email, password });
+      console.log('res', res);
+      // const token = res.data.data.token;
     } catch (e) {
       this.setState({ message: e });
       console.log('error', e);

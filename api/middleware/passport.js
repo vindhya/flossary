@@ -1,69 +1,39 @@
-const { SECRET } = require('../utils/constants');
-// const bcrypt = require('bcrypt');
-const { model: User } = require('../routes/users/user.model');
-
-// const BCRYPT_SALT_ROUNDS = 12;
-
 const passport = require('passport'),
-  localStrategy = require('passport-local').Strategy,
+  LocalStrategy = require('passport-local').Strategy,
   JwtStrategy = require('passport-jwt').Strategy,
   ExtractJwt = require('passport-jwt').ExtractJwt;
+const { SECRET } = require('../utils/constants');
+const { model: User } = require('../routes/users/user.model');
 
 passport.use(
-  'register',
-  new localStrategy({
-    usernameField: 'email',
-    passwordField: 'password',
-    session: false
-  }),
-  async (email, password, done) => {
-    try {
-      const user = await User.findOne({ email });
-      if (user) {
-        console.log('email has already been used');
-        return done(null, false, { message: 'email has already been used' });
-      } else {
-        const newUser = new User({ email, password });
-        newUser.save().then(() => {
-          console.log('user created');
-          return done(null, newUser);
-        });
-      }
-    } catch (e) {
-      done(e);
-    }
-  }
-);
-
-passport.use(
-  'login',
-  new localStrategy(
-    {
-      usernameField: 'email',
-      passwordField: 'password',
-      session: false
-    },
-    async (email, password, done) => {
-      try {
-        const foundUser = await User.findOne({ email });
-        if (foundUser === null) {
-          return done(null, false, { message: 'email not found' });
-        } else {
-          const match = await foundUser.comparePassword(password);
-          if (match) {
-            console.log('user found and authenticated');
-            return done(null, foundUser);
-          } else {
-            console.log('password does not match');
-            return done(null, false, { message: 'password does not match' });
-          }
+  new LocalStrategy(
+    { usernameField: 'email', passwordField: 'password' },
+    async (username, password, done) => {
+      User.findOne({ email: username }, async (err, user) => {
+        if (err) {
+          return done(err);
         }
-      } catch (e) {
-        done(e);
-      }
+        if (!user) {
+          return done(null, false, { message: 'incorrect username' });
+        }
+        if (!(await user.comparePassword(password))) {
+          return done(null, false, { message: 'incorrect password' });
+        }
+        return done(null, user);
+      });
     }
   )
 );
+
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
