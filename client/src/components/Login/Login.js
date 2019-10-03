@@ -8,7 +8,6 @@ class Login extends Component {
   state = { message: null };
 
   handleSubmit = async e => {
-    console.log('submitted!');
     e.preventDefault();
     const { email, password } = this.state;
 
@@ -16,7 +15,7 @@ class Login extends Component {
       const res = await axios.post(`/api/users/login`, {
         data: { email, password }
       });
-      console.log('res', res);
+      const token = res.data.data.token;
     } catch (e) {
       this.setState({ message: e });
       console.log('error', e);
@@ -26,7 +25,6 @@ class Login extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    console.log('state', this.state);
     return (
       <div className="mt-5">
         <Form onSubmit={this.handleSubmit}>

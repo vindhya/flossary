@@ -7,7 +7,6 @@ class Signup extends Component {
   state = { message: null };
 
   handleSubmit = async e => {
-    console.log('submitted!', e);
     e.preventDefault();
     const { email, password } = this.state;
 
@@ -15,7 +14,6 @@ class Signup extends Component {
       const res = await axios.post(`/api/users/signup`, {
         data: { email, password }
       });
-      console.log('res', res);
     } catch (e) {
       this.setState({ message: e });
       console.log('error', e);
