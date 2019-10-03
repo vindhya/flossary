@@ -15,6 +15,9 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.1",
-    "mongoose-seed-csv": "0.0.3"
+    "mongoose-seed-csv": "0.0.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   }
 }
