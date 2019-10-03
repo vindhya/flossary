@@ -23,7 +23,7 @@ const Header = () => {
             <NavLink to={`/login`} className="nav-link mr-2">
               Log In
             </NavLink>
-            <NavLink to={`/signup`} className="btn btn-secondary">
+            <NavLink to={`/signup`} className="btn btn-outline-primary">
               Sign Up
             </NavLink>
           </Nav>

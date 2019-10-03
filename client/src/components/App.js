@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 
 import Header from './Header';
-import Footer from './Footer';
-import Home from './Home';
-import Login from './Login';
-import Signup from './Signup';
+import Footer from './Footer/Footer';
+import Home from './Home/Home';
+import Login from './User/Login';
+import Signup from './User/Signup';
 
 import { GlobalStyle } from './GlobalStyles';
 
