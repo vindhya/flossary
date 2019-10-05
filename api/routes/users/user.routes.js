@@ -1,42 +1,42 @@
 const express = require('express');
-const passport = require('passport');
+// const passport = require('passport');
 const userService = require('./user.service');
 const tokenService = require('../../utils/token.service.js');
 const flossListService = require('../floss-lists/flossList.service');
 
 const router = express.Router();
 
-require('../../middleware/passport');
+// require('../../middleware/passport');
 
-router.route('/login').post(
-  passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login'
-  })
-);
+router.route('/login').post(async (req, res, next) => {
+  try {
+    const user = await userService.isUser(req.body.data);
+    if (user) {
+      const token = await tokenService.issueToken(user);
+      res.status(200).json({ data: { token } });
+    } else {
+      next();
+    }
+  } catch (e) {
+    next(e);
+  }
+});
 
-// router.route('/login').post(async (req, res, next) => {
-// try {
-//   const user = await userService.isUser(req.body.data);
-//   if (user) {
-//     const token = await tokenService.issueToken(user);
-//     res.status(200).json({ data: { token } });
-//   } else {
-//     next();
-//   }
-// } catch (e) {
-//   next(e);
-// }
-// });
+// router.route('/login').post(
+//   passport.authenticate('local', {
+//     successRedirect: '/',
+//     failureRedirect: '/login'
+//   })
+// );
 
 router.route('/signup').post(async (req, res, next) => {
-  // try {
-  //   const user = await userService.createUser(req.body.data);
-  //   res.status(201).json({ data: user });
-  // } catch (e) {
-  //   next(e);
-  // }
-  //
+  try {
+    const user = await userService.createUser(req.body.data);
+    res.status(201).json({ data: user });
+  } catch (e) {
+    next(e);
+  }
+
   // passport.authenticate('register', (err, user, info) => {
   //   console.log('err', err);
   //   console.log('user', user);
