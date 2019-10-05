@@ -11,7 +11,7 @@ exports.createUser = async userData => {
 
 exports.isUser = async ({ email, password }) => {
   try {
-    const [user] = await User.find({ email });
+    const user = await User.findOne({ email });
     if (user) {
       // how does it know how to compare passwords? we put in 10 salt rounds before?
       const match = await user.comparePassword(password);
