@@ -7,6 +7,7 @@ import Footer from './Footer/Footer';
 import Home from './Home/Home';
 import Login from './Login/Login';
 import Signup from './Login/Signup';
+import Dashboard from './Dashboard/Dashboard';
 
 import { GlobalStyle } from './GlobalStyles';
 
@@ -21,6 +22,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </Container>
 
