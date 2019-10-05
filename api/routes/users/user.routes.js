@@ -8,8 +8,7 @@ const router = express.Router();
 
 require('../../middleware/passport');
 
-router.post(
-  '/login',
+router.route('/login').post(
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login'
@@ -28,27 +27,6 @@ router.post(
 // } catch (e) {
 //   next(e);
 // }
-//
-// passport.authenticate('login', (err, user, info) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   if (info != undefined) {
-//     console.log(info.message);
-//     res.send(info.message);
-//   } else {
-//     req.logIn(user, err => {
-//       User.findOne({ email: user.email }).then(user => {
-//         const token = jwt.sign({ id: user.email }, SECRET);
-//         res.status(200).send({
-//           auth: true,
-//           token: token,
-//           message: 'user found & logged in'
-//         });
-//       });
-//     });
-//   }
-// });
 // });
 
 router.route('/signup').post(async (req, res, next) => {
