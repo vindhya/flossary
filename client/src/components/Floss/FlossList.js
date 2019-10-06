@@ -11,7 +11,6 @@ const renderFloss = (listId, flossList) => {
 };
 
 const FlossList = props => {
-  console.log(props.data);
   return (
     <Col>
       <Card className="mb-4">
