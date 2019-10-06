@@ -1,12 +1,12 @@
 const tokenService = require('../utils/token.service');
 
 module.exports = async (req, res, next) => {
-  const headers = req.body.headers;
+  const headers = req.headers;
 
   if (!headers) {
     next(new Error('Invalid Request'));
   } else {
-    const authHeader = req.body.headers['Authorization'];
+    const authHeader = req.headers['authorization'];
 
     if (!authHeader) {
       next(new Error('Invalid Request'));
@@ -16,6 +16,7 @@ module.exports = async (req, res, next) => {
         const decoded = await tokenService.verifyToken(token);
         if (decoded) {
           req.token = decoded;
+          console.log('decoded', decoded);
           next();
         } else {
           // next(new HTTP401Error()); // this error is coming from another utility
