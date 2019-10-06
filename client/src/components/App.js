@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 
 import { UserProvider } from './user-context';
-import Header from './Header';
+import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import Home from './Home/Home';
 import Login from './Login/Login';
