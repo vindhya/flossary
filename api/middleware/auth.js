@@ -16,7 +16,6 @@ module.exports = async (req, res, next) => {
         const decoded = await tokenService.verifyToken(token);
         if (decoded) {
           req.token = decoded;
-          console.log('decoded', decoded);
           next();
         } else {
           // next(new HTTP401Error()); // this error is coming from another utility

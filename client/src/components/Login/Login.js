@@ -17,7 +17,6 @@ class Login extends Component {
       const res = await axios.post(`/api/users/login`, {
         data: { email, password }
       });
-      console.log('res', res);
       const token = res.data.data.token;
       setToken(token);
       this.setState({ toDashboard: true });

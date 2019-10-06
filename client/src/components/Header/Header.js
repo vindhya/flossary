@@ -42,7 +42,6 @@ const renderLoginNavLinks = ({ _id, setUserData }) => {
 
 const Header = () => {
   const userData = useContext(UserContext);
-  console.log('userData', userData);
 
   return (
     <Navbar expand="md">
