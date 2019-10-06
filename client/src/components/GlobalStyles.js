@@ -9,6 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 	}
 	html {
 		position: relative;
-  	min-height: 100%;
+		min-height: 100%;
+	}
+	body {
+		margin-bottom: 60px;
 	}
 `;
