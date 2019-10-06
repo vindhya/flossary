@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 
+import { UserProvider } from './user-context';
 import Header from './Header';
 import Footer from './Footer/Footer';
 import Home from './Home/Home';
@@ -15,18 +16,18 @@ const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Header />
-
-      <Container>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/dashboard" component={Dashboard} />
-        </Switch>
-      </Container>
-
-      <Footer />
+      <UserProvider>
+        <Header />
+        <Container>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/dashboard" component={Dashboard} />
+          </Switch>
+        </Container>
+        <Footer />
+      </UserProvider>
     </BrowserRouter>
   );
 };
