@@ -103,7 +103,7 @@ router.route('/data').get(requireAuth, async (req, res, next) => {
 router
   .route('/:id/floss-lists')
   // TODO: add authorization here so only the user with the same id as this route can access
-  .get(async (req, res, next) => {
+  .get(requireAuth, async (req, res, next) => {
     try {
       const lists = await flossListService.getListsByUser(req.params.id);
       res.status(200).json({ data: lists });
