@@ -31,3 +31,11 @@ exports.getUsers = async () => {
     throw e;
   }
 };
+
+exports.getUserById = async id => {
+  try {
+    return await User.findById(id);
+  } catch (e) {
+    throw e;
+  }
+};
