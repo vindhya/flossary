@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-
-import { UserContext, UserConsumer } from '../user-context';
+import { UserContext } from '../user-context';
 import { getToken } from '../../services/token.service';
 
 const getUsername = email => email.slice(0, email.indexOf('@'));
@@ -12,21 +11,20 @@ const Dashboard = () => {
   const userData = useContext(UserContext);
   const authHeader = { Authorization: `Bearer ${getToken()}` };
 
-  useEffect(() => {
-    axios
-      .get('/api/users/data', {
-        headers: authHeader
-      })
-      .then(res => {
-        const newUserData = res.data.data;
-        userData.setUserData(newUserData);
+  const fetchData = async () => {
+    const userRes = await axios.get('/api/users/data', { headers: authHeader });
+    const newUserData = userRes.data.data;
+    userData.setUserData(newUserData);
 
-        axios
-          .get(`/api/users/${newUserData.id}/floss-lists`, {
-            headers: authHeader
-          })
-          .then(res => setFlossLists(res.data.data));
-      });
+    const flossRes = await axios.get(
+      `/api/users/${newUserData.id}/floss-lists`,
+      { headers: authHeader }
+    );
+    setFlossLists(flossRes.data.data);
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (
