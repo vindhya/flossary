@@ -13,9 +13,9 @@ export class UserProvider extends Component {
   };
 
   state = {
-    _id: '12345',
-    email: 'test@email.com',
-    role: 'user',
+    _id: '',
+    email: '',
+    role: '',
     setUserData: this.setUserData
   };
 
