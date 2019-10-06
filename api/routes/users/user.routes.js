@@ -3,6 +3,8 @@ const express = require('express');
 const userService = require('./user.service');
 const tokenService = require('../../utils/token.service.js');
 const flossListService = require('../floss-lists/flossList.service');
+const requireAuth = require('../../middleware/auth');
+const { SECRET } = require('../../utils/constants');
 
 const router = express.Router();
 
@@ -75,6 +77,17 @@ router
       next(e);
     }
   });
+
+router.route('/data').get(requireAuth, async (req, res, next) => {
+  try {
+    const { _id, email, role } = await userService.getUserById(
+      req.token.user.id
+    );
+    res.status(200).send({ data: { id: _id, email, role } });
+  } catch (e) {
+    next(e);
+  }
+});
 
 // router.route('/test').get(async (req, res, next) => {
 //   try {
