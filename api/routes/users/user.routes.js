@@ -83,7 +83,7 @@ router.route('/data').get(requireAuth, async (req, res, next) => {
     const { _id, email, role } = await userService.getUserById(
       req.token.user.id
     );
-    res.status(200).send({ data: { id: _id, email, role } });
+    res.status(200).send({ data: { _id, email, role } });
   } catch (e) {
     next(e);
   }

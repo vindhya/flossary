@@ -23,7 +23,7 @@ const Dashboard = () => {
     userData.setUserData(newUserData);
 
     const flossRes = await axios.get(
-      `/api/users/${newUserData.id}/floss-lists`,
+      `/api/users/${newUserData._id}/floss-lists`,
       { headers: authHeader }
     );
     setFlossLists(flossRes.data.data);
