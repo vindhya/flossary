@@ -5,12 +5,14 @@ import { getToken } from '../../services/token.service';
 import FlossList from '../Floss/FlossList';
 import Row from 'react-bootstrap/Row';
 
+// This is a cool pattern! I like it a lot
 const getUsername = email => email.slice(0, email.indexOf('@'));
 
 const renderFlossLists = listArray => {
   return listArray.map(list => <FlossList data={list} key={list._id} />);
 };
 
+// Nice small readable component! Great work 🔥🔥🔥
 const Dashboard = () => {
   const [flossLists, setFlossLists] = useState([]);
   const userData = useContext(UserContext);

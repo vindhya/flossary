@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { model: FlossList } = require('./flossList.model');
 
+// Nice clean services! Great job!
 exports.createList = async flossListData => {
   try {
     const list = new FlossList(flossListData);
@@ -37,6 +38,7 @@ exports.getListsByUser = async user => {
 };
 
 exports.updateList = async (listId, newListData) => {
+  // Love all the comments!
   // frontend should be sending entire flossList if updated in newListData, i.e., with the updates
   const list = await FlossList.findById(listId);
   list.set(newListData);
