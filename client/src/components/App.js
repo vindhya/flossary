@@ -12,6 +12,7 @@ import Dashboard from './Dashboard/Dashboard';
 
 import { GlobalStyle } from './GlobalStyles';
 
+// I love how readable and clear this component is!
 const App = () => {
   return (
     <BrowserRouter>
